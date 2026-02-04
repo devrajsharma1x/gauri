@@ -166,9 +166,7 @@ button:hover {
         <button onclick="openPage3()">CLICK HERE 💕</button>
     </div>
 
-   <script>
-let song;
-
+  <script>
 function openPage2() {
     document.getElementById("page1").classList.remove("active");
     document.getElementById("page2").classList.add("active");
@@ -176,9 +174,13 @@ function openPage2() {
     launchConfetti();
     startSlideshow();
 
-    song = new Audio("music.mp3");
-    song.loop = true;
-    song.play();
+    const song = document.getElementById("song");
+    song.muted = true;
+    song.play().then(() => {
+        song.muted = false;
+    }).catch(err => {
+        console.log("Audio blocked:", err);
+    });
 }
 </script>
 
@@ -258,6 +260,7 @@ function startSlideshow() {
 
 </body>
 </html>
+
 
 
 

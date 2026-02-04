@@ -166,9 +166,22 @@ button:hover {
         <button onclick="openPage3()">CLICK HERE 💕</button>
     </div>
 
-    <audio id="song" loop>
-        <source src="music.mp3" type="audio/mp3">
-    </audio>
+   <script>
+let song;
+
+function openPage2() {
+    document.getElementById("page1").classList.remove("active");
+    document.getElementById("page2").classList.add("active");
+
+    launchConfetti();
+    startSlideshow();
+
+    song = new Audio("music.mp3");
+    song.loop = true;
+    song.play();
+}
+</script>
+
 </div>
 
 <!-- PAGE 3 -->
@@ -245,5 +258,6 @@ function startSlideshow() {
 
 </body>
 </html>
+
 
 
